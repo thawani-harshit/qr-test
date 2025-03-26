@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Opening UnifyApps Matrix</title>
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        window.location.href = "matrix://open";
+      }, 100);
+      
+      setTimeout(function() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        var isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+        
+        if (isIOS) {
+          window.location.href = "https://testflight.apple.com/join/gqe8xWtD";
+        } else {
+          window.location.href = "https://play.google.com/store/apps/details?id=com.unifyapps.matrix&hl=en_IN";
+        }
+      }, 2000);
+    };
+  </script>
+</head>
+<body>
+  <h1>Opening UnifyApps Matrix...</h1>
+  <p>If not redirected automatically, <a id="storeLink" href="#">click here</a>.</p>
+  <script>
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    document.getElementById("storeLink").href = isIOS 
+      ? "https://testflight.apple.com/join/gqe8xWtD"
+      : "https://play.google.com/store/apps/details?id=com.unifyapps.matrix&hl=en_IN";
+  </script>
+</body>
+</html>
