@@ -3,25 +3,11 @@
 <head>
   <title>Opening UnifyApps Matrix</title>
   <script>
-    function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param);
-    }
-
     window.onload = function() {
-      // Get the URL from the QR Code
-      let appUrl = getQueryParam('url'); // e.g., "https://boat-shopping-qa.matrix-qa.unifyapps.com"
+      setTimeout(function() {
+        window.location.href = "matrix://open?url=native5-qa.matrix-qa.unifyapps.com";
+      }, 100);
       
-      if (appUrl) {
-        let encodedUrl = encodeURIComponent(appUrl);
-        
-        // Try opening Matrix app with the given URL
-        setTimeout(function() {
-          window.location.href = `matrix://open?url=${encodedUrl}`;
-        }, 100);
-      }
-
-      // Fallback to Store if Matrix is not installed
       setTimeout(function() {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         var isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
